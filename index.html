@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Me Mow</title>
+    <style>
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(
+          auto-fit,
+          minmax(300px, 1fr)
+        ); /* Responsive columns */
+        gap: 20px; /* Space between grid items */
+        max-width: 980px; /* Maximum width for the grid */
+        margin: 0 auto; /* Center the grid with left and right margins */
+        padding: 0 20px; /* Add padding to the sides for better spacing */
+      }
+      @media (min-width: 1200px) {
+        .grid-container {
+          grid-template-columns: repeat(
+            3,
+            1fr
+          ); /* Limit columns to 3 at larger screen sizes */
+        }
+      }
+      .grid-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .video-container {
+        display: flex; /* Align video and text side by side */
+        gap: 20px; /* Space between video and text */
+
+        overflow: hidden; /* Hide the overflow (cropped area) */
+      }
+      video {
+        width: 315px; /* Set the desired width */
+        height: 250px; /* Set the desired height for cropping */
+        object-fit: cover; /* This crops the video by zooming in */
+      }
+      .text-container {
+        width: 100%; /* Adjust text width */
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Andrie Coretico</h1>
+    <h3>Game Developer</h3>
+    <h2>Projects</h2>
+    <div class="grid-container">
+      <div class="grid-item">
+        <div class="video-container">
+          <video
+            class="hover-video"
+            poster="cover_images\DeadLineCover.png"
+            muted
+          >
+            <source src="videos\DeadLinedemo.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="text-container">
+          <h2>DeadLine</h2>
+          <p>
+            Don't you hate it when you're alone in your room and you feel that
+            someone is watching you
+          </p>
+        </div>
+      </div>
+
+      <div class="grid-item">
+        <div class="video-container">
+          <video
+            class="hover-video"
+            poster="cover_images\DeadLineCover.png"
+            muted
+          >
+            <source src="videos\HtSE101demo.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="text-container">
+          <h2>DeadLine</h2>
+          <p>
+            Don't you hate it when you're alone in your room and you feel that
+            someone is watching you
+          </p>
+        </div>
+      </div>
+
+      <script>
+        // Select all videos with the class 'hover-video'
+        const videos = document.querySelectorAll(".hover-video");
+
+        videos.forEach((video) => {
+          // Play the video on mouseenter (hover)
+          video.addEventListener("mouseenter", function () {
+            video.play();
+          });
+
+          // Pause, reset, and show the poster on mouseleave
+          video.addEventListener("mouseleave", function () {
+            video.pause();
+            video.currentTime = 0; // Reset to the beginning
+            video.load(); // Reload the video to display the poster
+          });
+        });
+      </script>
+    </div>
+  </body>
+</html>
