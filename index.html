@@ -3,26 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
     <title>Me Mow</title>
     <style>
+      body {
+        font-family: "Rowdies", sans-serif;
+        background-color: #121212;
+        color: antiquewhite;
+      }
       .grid-container {
         display: grid;
-        grid-template-columns: repeat(
-          auto-fit,
-          minmax(300px, 1fr)
-        ); /* Responsive columns */
+        grid-template-columns: repeat(3, 1fr); /* Responsive columns */
         gap: 20px; /* Space between grid items */
-        max-width: 980px; /* Maximum width for the grid */
-        margin: 0 auto; /* Center the grid with left and right margins */
-        padding: 0 20px; /* Add padding to the sides for better spacing */
-      }
-      @media (min-width: 1200px) {
-        .grid-container {
-          grid-template-columns: repeat(
-            3,
-            1fr
-          ); /* Limit columns to 3 at larger screen sizes */
-        }
       }
       .grid-item {
         display: flex;
@@ -44,71 +39,196 @@
       .text-container {
         width: 100%; /* Adjust text width */
       }
+
+      .center-container {
+        display: flex;
+        justify-content: center; /* Horizontally center */
+        align-items: center; /* Vertically center */
+        height: 80vh; /* Full viewport height */
+      }
+      .center-text {
+        text-align: center; /* Optional, centers text alignment */
+      }
+      .projects {
+        max-width: 980px; /* Maximum width for the grid */
+        margin: 0 auto; /* Center the grid with left and right margins */
+        padding: 0 20px; /* Add padding to the sides for better spacing */
+      }
+      h1 {
+        font-size: 5vw;
+      }
+      h3 {
+        color: #b3b3b3;
+      }
+      a {
+        color: antiquewhite;
+      }
+      .scroll-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        padding: 1vw;
+        padding-left: 0;
+        background-color: #1db954;
+
+        z-index: 1000; /* Make sure it stays on top */
+        opacity: 0; /* Start hidden */
+        transform: translateY(-100%); /* Move up when hidden */
+        transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition */
+      }
     </style>
   </head>
   <body>
-    <h1>Andrie Coretico</h1>
-    <h3>Game Developer</h3>
-    <h2>Projects</h2>
-    <div class="grid-container">
-      <div class="grid-item">
-        <div class="video-container">
-          <video
-            class="hover-video"
-            poster="cover_images\DeadLineCover.png"
-            muted
-          >
-            <source src="videos\DeadLinedemo.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div class="text-container">
-          <h2>DeadLine</h2>
-          <p>
-            Don't you hate it when you're alone in your room and you feel that
-            someone is watching you
-          </p>
-        </div>
-      </div>
-
-      <div class="grid-item">
-        <div class="video-container">
-          <video
-            class="hover-video"
-            poster="cover_images\DeadLineCover.png"
-            muted
-          >
-            <source src="videos\HtSE101demo.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div class="text-container">
-          <h2>DeadLine</h2>
-          <p>
-            Don't you hate it when you're alone in your room and you feel that
-            someone is watching you
-          </p>
-        </div>
-      </div>
-
-      <script>
-        // Select all videos with the class 'hover-video'
-        const videos = document.querySelectorAll(".hover-video");
-
-        videos.forEach((video) => {
-          // Play the video on mouseenter (hover)
-          video.addEventListener("mouseenter", function () {
-            video.play();
-          });
-
-          // Pause, reset, and show the poster on mouseleave
-          video.addEventListener("mouseleave", function () {
-            video.pause();
-            video.currentTime = 0; // Reset to the beginning
-            video.load(); // Reload the video to display the poster
-          });
-        });
-      </script>
+    <div class="scroll-menu" id="scrollMenu">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
     </div>
+    <div class="center-container">
+      <div class="center-text">
+        <h1>Ryan Andrie Coretico</h1>
+        <h3>Game Developer</h3>
+      </div>
+    </div>
+
+    <div class="projects">
+      <h2>Projects</h2>
+      <div class="grid-container">
+        <div class="grid-item">
+          <div class="video-container">
+            <video
+              class="hover-video"
+              poster="cover_images\DeadLineCover.png"
+              muted
+            >
+              <source src="videos\DeadLinedemo.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="text-container">
+            <h2>DeadLine</h2>
+            <p>
+              Don't you hate it when you're alone in your room and you feel that
+              someone is watching you
+            </p>
+          </div>
+        </div>
+
+        <div class="grid-item">
+          <div class="video-container">
+            <video
+              class="hover-video"
+              poster="cover_images\HtSE101Cover.png"
+              muted
+            >
+              <source src="videos\HtSE101demo.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="text-container">
+            <h2>How to Survive Extinction 101</h2>
+            <p>
+              Will you survive the disaster or will you be extinct forever,
+              evolve to survive the disasters.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid-item">
+          <div class="video-container">
+            <video
+              class="hover-video"
+              poster="cover_images\DeadLineCover.png"
+              muted
+            >
+              <source src="videos\HtSE101demo.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="text-container">
+            <h2>Slime Connection</h2>
+            <p>Bounce your way to the game with your trusted slime friends</p>
+          </div>
+        </div>
+
+        <div class="grid-item">
+          <div class="video-container">
+            <video
+              class="hover-video"
+              poster="cover_images\DeadLineCover.png"
+              muted
+            >
+              <source src="videos\HtSE101demo.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="text-container">
+            <h2>Match the Bastard</h2>
+            <p>
+              Memory Game of matching the right accessories to the Bastard's
+              expression
+            </p>
+          </div>
+        </div>
+
+        <div class="grid-item">
+          <div class="video-container">
+            <video
+              class="hover-video"
+              poster="cover_images\DeadLineCover.png"
+              muted
+            >
+              <source src="videos\HtSE101demo.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="text-container">
+            <h2>The Last Survivor</h2>
+            <p>
+              You're the only survivor left in the apocalypse, how will you
+              manage?
+            </p>
+          </div>
+        </div>
+
+        <script>
+          // Select all videos with the class 'hover-video'
+          const videos = document.querySelectorAll(".hover-video");
+
+          videos.forEach((video) => {
+            // Play the video on mouseenter (hover)
+            video.addEventListener("mouseenter", function () {
+              video.play();
+            });
+
+            // Pause, reset, and show the poster on mouseleave
+            video.addEventListener("mouseleave", function () {
+              video.pause();
+              video.currentTime = 0; // Reset to the beginning
+              video.load(); // Reload the video to display the poster
+            });
+          });
+        </script>
+      </div>
+    </div>
+    <script>
+      // Get the scroll menu element
+      const scrollMenu = document.getElementById("scrollMenu");
+
+      // Function to show the menu when scrolling down
+      window.onscroll = function () {
+        if (window.scrollY > 100) {
+          // Make the menu visible with smooth animation
+          scrollMenu.style.opacity = "1";
+          scrollMenu.style.transform = "translateY(0)";
+        } else {
+          // Hide the menu with smooth animation
+          scrollMenu.style.opacity = "0";
+          scrollMenu.style.transform = "translateY(-100%)";
+        }
+      };
+    </script>
   </body>
 </html>
