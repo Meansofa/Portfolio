@@ -18,69 +18,28 @@
     />
     <!-- Google Fonts END -->
     <!-- Gradients:
-     ##faebd7
-    #b3b3b3
-    #1db954
-    #121212 -->
+     #232723	(35,39,35)
+    #62d089	(98,208,137)
+    #e1ece3	(225,236,227)
+    #457e59	(69,126,89)
+    #a8b2a8	(168,178,168)-->
     <style>
       body {
         font-family: "Rowdies", sans-serif;
-        background-color: #121212;
+        background-color: #232723;
         color: #faebd7;
+        margin: 0;
       }
-      .grid-container {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); /* Responsive columns */
-        gap: 20px; /* Space between grid items */
-      }
-      .grid-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-      .video-container {
-        display: flex; /* Align video and text side by side */
-        gap: 20px; /* Space between video and text */
-
-        overflow: hidden; /* Hide the overflow (cropped area) */
-      }
-      video {
-        width: 315px; /* Set the desired width */
-        height: 250px; /* Set the desired height for cropping */
-        object-fit: cover; /* This crops the video by zooming in */
-      }
-      .text-container {
-        width: 100%; /* Adjust text width */
-      }
-      .center-container {
-        display: flex;
-        justify-content: center; /* Horizontally center */
-        align-items: center; /* Vertically center */
-        height: 80vh; /* Full viewport height */
-      }
-      .center-text {
-        text-align: center; /* Optional, centers text alignment */
-      }
-      #Memow {
-        margin-top: 17vh;
-        width: auto;
-        height: 20%; /* Maintains aspect ratio */
-        position: absolute;
-      }
-      .projects {
-        max-width: 80vw; /* Maximum width for the grid */
-        margin: 0 auto; /* Center the grid with left and right margins */
-        padding: 0 20px; /* Add padding to the sides for better spacing */
-      }
-      h1 {
-        font-size: 5vw;
-      }
-      h3 {
-        color: #b3b3b3;
-      }
-      a {
-        color: antiquewhite;
+      .background_image {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 100vh; /* Set header height to 80% of the viewport */
+        background-color: #232723;
+        z-index: 1; /* Ensure the header stays on top */
+        background-image: url("PersonalPics/handsomeBG.png");
+        background-blend-mode: overlay;
+        z-index: -100;
       }
       .scroll-menu {
         word-spacing: 24px;
@@ -91,174 +50,275 @@
         text-align: center;
         padding: 1vw;
         padding-left: 0;
-        background-color: #1db954;
+        background-color: #62d089;
 
         z-index: 1000; /* Make sure it stays on top */
         opacity: 0; /* Start hidden */
         transform: translateY(-100%); /* Move up when hidden */
         transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition */
       }
+      .scroll-menu a {
+        color: antiquewhite;
+      }
+      header {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 80vh; /* Set header height to 80% of the viewport */
+      }
+      .center_container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      #Memow {
+        /*The image in the header*/
+        margin-top: 17vh;
+        width: auto;
+        height: 20%; /* Maintains aspect ratio */
+        position: absolute;
+      }
+      main {
+        margin: 0 auto;
+        margin-top: 80vh; /* Push content down by 80% of viewport */
+      }
+      section {
+        max-width: 100%;
+        padding: 12px 8vw 12px 8vw; /* top right bottom left; */
+      }
+      .project {
+        background-color: #121212;
+      }
+      .autobiography {
+        background-color: #62d089;
+        color: #457e59;
+      }
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(
+          auto-fit,
+          minmax(550px, 1fr)
+        ); /* Responsive columns */
+        gap: 12px; /* Space between grid items */
+      }
+      .grid-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .transparent-space {
+        height: 50px; /* Set the height for the transparent space */
+        background-color: rgba(0, 0, 0, 0); /* Fully transparent */
+      }
+      h1 {
+        font-size: 6vw;
+      }
+      h2 {
+        font-size: 36px;
+      }
+      h3 {
+        font-size: 27px;
+        font-family: "Pacifico", cursive;
+      }
+      h4 {
+        font-size: 27px;
+        font-family: "Pacifico", cursive;
+      }
+      p {
+        font-size: 23px;
+        font-family: "Montserrat Underline", sans-serif;
+      }
     </style>
   </head>
   <body>
-    <div class="scroll-menu" id="scrollMenu">
+    <nav class="scroll-menu" id="scrollMenu">
       <a href="#home">Home</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
-    </div>
-    <div class="center-container">
+    </nav>
+    <div class="background_image"></div>
+    <header class="center_container">
       <img id="Memow" src="PersonalPics\memosabutageek.png" />
-      <h1 class="center-text" id="tweenHeader">Ryan Andrie Coretico</h1>
-    </div>
-    <div class="projects">
-      <h2>Projects</h2>
-      <div class="grid-container">
-        <div class="grid-item">
-          <iframe
-            frameborder="0"
-            src="https://itch.io/embed/3331251?border_width=0&amp;bg_color=0f0400&amp;fg_color=ffffff&amp;link_color=a10005&amp;border_color=ff233d"
-            width="550"
-            height="165"
-            ><a href="https://memosa.itch.io/atomic-reaction-expanded"
-              >Chain Reaction : Expanded by Meansofa</a
-            ></iframe
-          >
+      <h1 id="tweenHeader">Ryan Andrie Coretico</h1>
+    </header>
+    <main>
+      <section class="project">
+        <h2>Projects</h2>
+        <div class="grid-container">
+          <div class="grid-item">
+            <iframe
+              frameborder="0"
+              src="https://itch.io/embed/3331251?border_width=0&amp;bg_color=0f0400&amp;fg_color=ffffff&amp;link_color=a10005&amp;border_color=ff233d"
+              width="550"
+              height="165"
+              ><a href="https://memosa.itch.io/atomic-reaction-expanded"
+                >Chain Reaction : Expanded by Meansofa</a
+              ></iframe
+            >
+          </div>
+          <div class="grid-item">
+            <iframe
+              frameborder="0"
+              src="https://itch.io/embed/3262333?border_width=0&amp;bg_color=be333a&amp;fg_color=74000c&amp;link_color=ff3a3a&amp;border_color=83373f"
+              width="550"
+              height="165"
+              ><a href="https://memosa.itch.io/night-stalker"
+                >Night Stalker by Meansofa, Horror Hatch</a
+              ></iframe
+            >
+          </div>
+          <div class="grid-item">
+            <iframe
+              frameborder="0"
+              src="https://itch.io/embed/3195261?border_width=0&amp;bg_color=664343&amp;fg_color=fff0d1&amp;link_color=fff0d1&amp;border_color=635858"
+              width="550"
+              height="165"
+              ><a href="https://memosa.itch.io/to-live-a-balanced-life"
+                >To Live a Balanced Life by Meansofa</a
+              ></iframe
+            >
+          </div>
+          <div class="grid-item">
+            <iframe
+              frameborder="0"
+              src="https://itch.io/embed/3083933?border_width=0&amp;bg_color=3e171b&amp;fg_color=ff2020&amp;link_color=fa5c5c&amp;border_color=953737"
+              width="550"
+              height="165"
+              ><a href="https://memosa.itch.io/a-signal-to-lost-pieces"
+                >A Signal to Lost Pieces by Meansofa</a
+              ></iframe
+            >
+          </div>
+          <div class="grid-item">
+            <iframe
+              frameborder="0"
+              src="https://itch.io/embed/2987219?border_width=0&amp;bg_color=486f32&amp;fg_color=79ca6e&amp;link_color=cdff7b&amp;border_color=466649"
+              width="550"
+              height="165"
+              ><a href="https://memosa.itch.io/deadline"
+                >DeadLine by Meansofa, muhakun1001, PlayerXYZ, EddieR222, Rhi</a
+              ></iframe
+            >
+          </div>
+          <div class="grid-item">
+            <iframe
+              frameborder="0"
+              src="https://itch.io/embed/2819735?border_width=0&amp;bg_color=321e1e&amp;fg_color=ffffff&amp;link_color=fa5c5c&amp;border_color=4a4343"
+              width="550"
+              height="165"
+              ><a href="https://memosa.itch.io/how-to-survive-extinction-101"
+                >How to Survive Extinction 101 by Meansofa</a
+              ></iframe
+            >
+          </div>
+          <div class="grid-item">
+            <iframe
+              frameborder="0"
+              src="https://itch.io/embed/2804050?border_width=0&amp;bg_color=592938&amp;fg_color=ff4449&amp;link_color=fa5c5c&amp;border_color=c14b4e"
+              width="550"
+              height="165"
+              ><a href="https://memosa.itch.io/the-last-survivor"
+                >The Last Survivor by Meansofa</a
+              ></iframe
+            >
+          </div>
+          <div class="grid-item">
+            <iframe
+              frameborder="0"
+              src="https://itch.io/embed/2701580?border_width=0&amp;bg_color=4f6781&amp;fg_color=adc6dc&amp;link_color=fa5c5c&amp;border_color=8999ac"
+              width="550"
+              height="165"
+              ><a href="https://memosa.itch.io/silly-escape-your-house-game-3"
+                >Silly Escape your House Game :3 by Meansofa</a
+              ></iframe
+            >
+          </div>
+          <div class="grid-item">
+            <iframe
+              frameborder="0"
+              src="https://itch.io/embed/2676731?border_width=0&amp;bg_color=c6c2db"
+              width="550"
+              height="165"
+              ><a href="https://memosa.itch.io/skeleton-against-the-world"
+                >Skeleton against the WORLD by Meansofa</a
+              ></iframe
+            >
+          </div>
+          <div class="grid-item">
+            <iframe
+              frameborder="0"
+              src="https://itch.io/embed/2841435?border_width=0&amp;bg_color=9e2835&amp;fg_color=afbfd2&amp;link_color=fa5c5c&amp;border_color=68515b"
+              width="550"
+              height="165"
+              ><a href="https://memosa.itch.io/dont-fall"
+                >Don't Fall by Meansofa</a
+              ></iframe
+            >
+          </div>
+          <div class="grid-item">
+            <iframe
+              frameborder="0"
+              src="https://itch.io/embed/2469992?linkback=true&amp;border_width=0&amp;bg_color=214edb&amp;fg_color=00cfbe"
+              width="550"
+              height="165"
+              ><a href="https://memosa.itch.io/slime-connec"
+                >Slime Connection by Meansofa</a
+              ></iframe
+            >
+          </div>
+          <div class="grid-item">
+            <iframe
+              frameborder="0"
+              src="https://itch.io/embed/2501285?border_width=0&amp;bg_color=5f5da9&amp;fg_color=fdf1f1&amp;link_color=8ef1cd&amp;border_color=5383b7"
+              width="550"
+              height="165"
+              ><a href="https://memosa.itch.io/slime-monster"
+                >Slime Monster by Meansofa</a
+              ></iframe
+            >
+          </div>
+          <div class="grid-item">
+            <iframe
+              frameborder="0"
+              src="https://itch.io/embed/2550533?border_width=0&amp;bg_color=bacefd&amp;fg_color=745ab1&amp;link_color=5bd1fa&amp;border_color=7085ff"
+              width="550"
+              height="165"
+              ><a href="https://memosa.itch.io/match-the-bastard"
+                >Match the Bastard by Meansofa</a
+              ></iframe
+            >
+          </div>
+          <div class="grid-item"></div>
         </div>
-        <div class="grid-item">
-          <iframe
-            frameborder="0"
-            src="https://itch.io/embed/3262333?border_width=0&amp;bg_color=be333a&amp;fg_color=74000c&amp;link_color=ff3a3a&amp;border_color=83373f"
-            width="550"
-            height="165"
-            ><a href="https://memosa.itch.io/night-stalker"
-              >Night Stalker by Meansofa, Horror Hatch</a
-            ></iframe
-          >
-        </div>
-        <div class="grid-item">
-          <iframe
-            frameborder="0"
-            src="https://itch.io/embed/3195261?border_width=0&amp;bg_color=664343&amp;fg_color=fff0d1&amp;link_color=fff0d1&amp;border_color=635858"
-            width="550"
-            height="165"
-            ><a href="https://memosa.itch.io/to-live-a-balanced-life"
-              >To Live a Balanced Life by Meansofa</a
-            ></iframe
-          >
-        </div>
-        <div class="grid-item">
-          <iframe
-            frameborder="0"
-            src="https://itch.io/embed/3083933?border_width=0&amp;bg_color=3e171b&amp;fg_color=ff2020&amp;link_color=fa5c5c&amp;border_color=953737"
-            width="550"
-            height="165"
-            ><a href="https://memosa.itch.io/a-signal-to-lost-pieces"
-              >A Signal to Lost Pieces by Meansofa</a
-            ></iframe
-          >
-        </div>
-        <div class="grid-item">
-          <iframe
-            frameborder="0"
-            src="https://itch.io/embed/2987219?border_width=0&amp;bg_color=486f32&amp;fg_color=79ca6e&amp;link_color=cdff7b&amp;border_color=466649"
-            width="550"
-            height="165"
-            ><a href="https://memosa.itch.io/deadline"
-              >DeadLine by Meansofa, muhakun1001, PlayerXYZ, EddieR222, Rhi</a
-            ></iframe
-          >
-        </div>
-        <div class="grid-item">
-          <iframe
-            frameborder="0"
-            src="https://itch.io/embed/2819735?border_width=0&amp;bg_color=321e1e&amp;fg_color=ffffff&amp;link_color=fa5c5c&amp;border_color=4a4343"
-            width="550"
-            height="165"
-            ><a href="https://memosa.itch.io/how-to-survive-extinction-101"
-              >How to Survive Extinction 101 by Meansofa</a
-            ></iframe
-          >
-        </div>
-        <div class="grid-item">
-          <iframe
-            frameborder="0"
-            src="https://itch.io/embed/2804050?border_width=0&amp;bg_color=592938&amp;fg_color=ff4449&amp;link_color=fa5c5c&amp;border_color=c14b4e"
-            width="550"
-            height="165"
-            ><a href="https://memosa.itch.io/the-last-survivor"
-              >The Last Survivor by Meansofa</a
-            ></iframe
-          >
-        </div>
-        <div class="grid-item">
-          <iframe
-            frameborder="0"
-            src="https://itch.io/embed/2701580?border_width=0&amp;bg_color=4f6781&amp;fg_color=adc6dc&amp;link_color=fa5c5c&amp;border_color=8999ac"
-            width="550"
-            height="165"
-            ><a href="https://memosa.itch.io/silly-escape-your-house-game-3"
-              >Silly Escape your House Game :3 by Meansofa</a
-            ></iframe
-          >
-        </div>
-        <div class="grid-item">
-          <iframe
-            frameborder="0"
-            src="https://itch.io/embed/2676731?border_width=0&amp;bg_color=c6c2db"
-            width="550"
-            height="165"
-            ><a href="https://memosa.itch.io/skeleton-against-the-world"
-              >Skeleton against the WORLD by Meansofa</a
-            ></iframe
-          >
-        </div>
-        <div class="grid-item">
-          <iframe
-            frameborder="0"
-            src="https://itch.io/embed/2841435?border_width=0&amp;bg_color=9e2835&amp;fg_color=afbfd2&amp;link_color=fa5c5c&amp;border_color=68515b"
-            width="550"
-            height="165"
-            ><a href="https://memosa.itch.io/dont-fall"
-              >Don't Fall by Meansofa</a
-            ></iframe
-          >
-        </div>
-        <div class="grid-item">
-          <iframe
-            frameborder="0"
-            src="https://itch.io/embed/2469992?linkback=true&amp;border_width=0&amp;bg_color=214edb&amp;fg_color=00cfbe"
-            width="550"
-            height="165"
-            ><a href="https://memosa.itch.io/slime-connec"
-              >Slime Connection by Meansofa</a
-            ></iframe
-          >
-        </div>
-        <div class="grid-item">
-          <iframe
-            frameborder="0"
-            src="https://itch.io/embed/2501285?border_width=0&amp;bg_color=5f5da9&amp;fg_color=fdf1f1&amp;link_color=8ef1cd&amp;border_color=5383b7"
-            width="550"
-            height="165"
-            ><a href="https://memosa.itch.io/slime-monster"
-              >Slime Monster by Meansofa</a
-            ></iframe
-          >
-        </div>
-        <div class="grid-item">
-          <iframe
-            frameborder="0"
-            src="https://itch.io/embed/2550533?border_width=0&amp;bg_color=bacefd&amp;fg_color=745ab1&amp;link_color=5bd1fa&amp;border_color=7085ff"
-            width="550"
-            height="165"
-            ><a href="https://memosa.itch.io/match-the-bastard"
-              >Match the Bastard by Meansofa</a
-            ></iframe
-          >
-        </div>
-        <div class="grid-item"></div>
-      </div>
-    </div>
+      </section>
+      <div class="transparent-space"></div>
+      <!-- Transparent spacer -->
+      <section class="autobiography">
+        <h2>Autobiography</h2>
+        <ul>
+          <p>
+            &nbsp; &nbsp; &nbsp; &nbsp; My dog ate my autobiography (●´⌓`●)
+            R.I.P,
+            <br />
+          </p>
+          <li><h3>Personality</h3></li>
+          <div class="center_container">
+            <img src="PersonalPics\ENFP.png" style="width: 50vw" />
+            <h1>ENFP</h1>
+          </div>
+          <li>
+            <ul>
+              <li>I like to Read other people's action and behavior</li>
+              <p>
+                Dude. I might not have the right personality for an ENFP but I'm
+                not taking that test again (∩ ⌣̀_⌣́)
+              </p>
+            </ul>
+          </li>
+        </ul>
+      </section>
+    </main>
   </body>
   <script>
     // =======================================================
